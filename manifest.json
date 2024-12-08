@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Cookie Extractor",
+  "version": "1.0",
+  "permissions": [
+    "cookies",
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Get Cookies"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["tools-script.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
